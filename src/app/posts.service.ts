@@ -13,4 +13,10 @@ export class PostsService {
       .map(res => res.json());
   }
 
+  getPost(id) {
+    console.log('service ' + id);
+    return this.http.get('/api/posts/' + id)
+      .map(res => res.json());
+  }
+ 
 }

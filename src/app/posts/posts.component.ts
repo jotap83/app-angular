@@ -14,10 +14,28 @@ export class PostsComponent implements OnInit {
   constructor(private postsService: PostsService) { }
 
   ngOnInit() {
+
+    console.log('inicio...');
+
     // Retrieve posts from the API
     this.postsService.getAllPosts().subscribe(posts => {
       this.posts = posts;
     });
+  }
+
+  public open(event, item) {
+    alert('Open ' + item);
+  }
+
+  public getPost(event, id) {
+
+    console.log('component ' + id);
+
+    // Retrieve posts from the API
+    this.postsService.getPost(id).subscribe(posts => {
+      this.posts = posts;
+    });
+
   }
 
 }

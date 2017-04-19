@@ -17,6 +17,8 @@ router.get('/posts', (req, res) => {
   // Get posts from the mock api
   // This should ideally be replaced with a service that connects to MongoDB
 
+  console.log('getAllPosts');
+
   axios.get(`${API}/posts/?` + qs.stringify(req.query))
     .then(posts => {
       res.status(200).json(posts.data);
@@ -30,6 +32,8 @@ router.get('/posts', (req, res) => {
 router.get('/posts/:id', (req, res) => {
   // Get posts from the mock api
   // This should ideally be replaced with a service that connects to MongoDB 
+
+  console.log('getPost');
 
   axios.get(`${API}/posts/` + req.params.id + '/?' + qs.stringify(req.query), req.query)
     .then(posts => {

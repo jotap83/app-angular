@@ -2,18 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-// Imports commented out for brevity
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-
 import { PostsComponent } from './posts/posts.component';
-
 import { PostsService } from './posts.service';
+import { HomeComponent } from './home/home.component';
+import {routes} from './app.routes';
 
 // Define the routes
-const ROUTES = [
+const ROUTES_OLD = [
   {
     path: '',
     redirectTo: 'posts',
@@ -28,13 +26,14 @@ const ROUTES = [
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES) // Add routes to the app
+    RouterModule.forRoot(routes) // Add routes to the app
   ],
   providers: [PostsService], // Add the posts service
   bootstrap: [AppComponent]
